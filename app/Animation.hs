@@ -10,12 +10,8 @@ import Control.Monad.State.Lazy
 
 runAnimation :: Int -> ReaderT Env (StateT Status (WriterT String IO)) ()
 runAnimation frameCount = if frameCount == 0 then do { return () } else do {
-    -- Reader monad makes it possible that we don't pass read only state around
     env <- ask;
-    -- State monad creates an illusion of mutable state
     status <- get;
-
-    -- Performing IO work requires lifting 3 times into the writer/state/reader transformers
     lift $ lift $ lift $ draw env status;
 
     -- Now change the state
