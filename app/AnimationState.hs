@@ -2,10 +2,6 @@ module AnimationState where
 
 type Vector = (Int, Int)
 
--- Implementation Notes --
--- The name State conflict with State Monad and is creating trouble
--- might as well just call this status.
-
 -- direction vector will be something like (x, y) where x and y can be 0, 1, -1
 data Status = Status { position :: Vector, direction :: Vector } -- speed :: Int }
   deriving (Show)

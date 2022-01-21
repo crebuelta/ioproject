@@ -5,9 +5,6 @@ import Control.Concurrent (threadDelay)
 import System.Process (system)
 
 clearScreen :: IO ()
--- Implementation Notes --
--- This is a new implementation that will work on Windows
--- feel free to change it back to the ANSI escape code version if that works for you
 clearScreen = do { system "clear"; return () }
 
 drawStatus :: Env -> Status -> String
