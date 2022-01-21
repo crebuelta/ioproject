@@ -18,7 +18,7 @@ runAnimation frameCount = if frameCount == 0 then do { return () } else do {
     -- Performing IO work requires lifting 3 times into the writer/state/reader transformers
     lift $ lift $ lift $ draw env status;
 
-    -- Now "change" the state
+    -- Now change the state
     put (next env status);
 
     -- Log the current status
